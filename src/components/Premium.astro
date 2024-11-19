@@ -1,0 +1,106 @@
+---
+const plans = [
+  {
+    title: "Web Boda Plata",
+    price: "S/99.90",
+    features: [
+      "Crear una página web básica para tu boda",
+      "Diseño predeterminado con temas simples",
+      "Sección para RSVP básico de invitados",
+      "Personalización de texto y colores",
+    ],
+    cta: "Empezar",
+    url: "https://foreverbodas.lemonsqueezy.com/buy/68c817e3-5ad3-4269-b1e7-220d7cf71070",
+    popular: false,
+  },
+  {
+    title: "Web Boda Oro",
+    price: "S/199.90",
+    features: [
+      "Crear una página web avanzada para tu boda",
+      "Diseños modernos y opciones de personalización",
+      "Galería de fotos y videos de la pareja",
+      "Sección para RSVP con confirmación automática",
+      "Mapa interactivo para la ubicación del evento",
+      "Soporte prioritario por correo",
+    ],
+    cta: "Empezar",
+    url: "https://foreverbodas.lemonsqueezy.com/buy/623680a3-367f-464f-9d76-5557ca33a640",
+    popular: true,
+  },
+  {
+    title: "Web Boda Diamante",
+    price: "S/299.90",
+    features: [
+      "Crear una página web premium para tu boda",
+      "Diseño personalizado por nuestro equipo",
+      "Galería multimedia avanzada (fotos y videos en alta calidad)",
+      "Página multi-sección con cronograma del evento",
+      "RSVP avanzado con seguimiento y estadísticas",
+      "Dominio personalizado incluido (.com, .net, etc.)",
+      "Soporte premium 24/7 por chat y correo",
+    ],
+    cta: "Empezar",
+    url: "https://foreverbodas.lemonsqueezy.com/buy/a0c31267-ca4e-4d16-8e06-689eec38b43e",
+    popular: false,
+  },
+];
+
+---
+
+<div class="container mx-auto px-4 py-8">
+  <h2 class="text-3xl font-bold text-center mb-8">Nuestros Planes</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {plans.map((plan) => (
+      <div
+        class={`p-6 border rounded-lg flex flex-col ${
+          plan.popular ? "border-primary shadow-lg" : "border-gray-200"
+        }`}
+      >
+        {plan.popular && (
+          <div class="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full self-end mb-2">
+            Más popular
+          </div>
+        )}
+        <h3 class="text-2xl font-bold mb-2">{plan.title}</h3>
+        <p class="text-4xl font-bold text-primary mb-4">
+          {plan.price}
+          <span class="text-lg text-gray-500">/mes</span>
+        </p>
+        <ul class="flex-grow space-y-2 mb-6">
+          {plan.features.map((feature, featureIndex) => (
+            <li class="flex items-center space-x-2">
+              <svg
+                class="w-5 h-5 text-primary"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"
+                ></path>
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <a
+  href={plan.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`w-full text-center py-2 px-4 rounded-lg font-semibold ${
+    plan.popular
+      ? "bg-primary text-white"
+      : "border border-primary text-primary"
+  }`}
+>
+  {plan.cta}
+</a>
+      </div>
+    ))}
+  </div>
+</div>
