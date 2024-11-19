@@ -1,0 +1,34 @@
+---
+import CardFAQ from "./CardFAQ"
+
+const cards = [{
+title: "¿Cómo puedo personalizar mis invitaciones digitales?",
+description: "Puedes personalizar tus invitaciones digitales eligiendo entre una variedad de colores y tipografías que se adapten al estilo de tu boda. Nuestra herramienta te permite crear invitaciones únicas que reflejan tu personalidad y temática del evento."
+},
+{
+    title:"¿Es posible llevar un seguimiento de las confirmaciones de asistencia?",
+    description: "Sí, nuestra plataforma te permite realizar un seguimiento en tiempo real de las confirmaciones de asistencia. Puedes ver quién ha confirmado y quién no, lo que facilita la gestión de tu lista de invitados.",
+},
+{
+    title: "¿Qué tan seguro es enviar invitaciones a través de 4Everbodas?",
+    description: "La seguridad es nuestra prioridad. Utilizamos tecnologías avanzadas para garantizar que tus invitaciones y la información de tus invitados estén protegidas en todo momento"
+},
+{
+    title: "¿Puedo integrar la información de mi boda con mapas y direcciones?",
+    description: "¡Claro! Nuestra aplicación permite integrar fácilmente con Google Maps, para que tus invitados puedan encontrar la ubicación del evento sin problemas. Solo necesitas ingresar el link de la ubicación y nosotros haremos el resto."
+}
+]
+---
+<div id="FAQ" class="mt-24 w-[750px] mx-auto">
+    <h3 class="font-playfair text-secondary text-3xl font-bold text-center relative z-20">Preguntas frecuentes</h3>
+    <div class="bg-primary w-16 h-16 opacity-30 -translate-y-5 mx-auto z-10"></div>
+    <div class="w-40 h-[1px] opacity-40 bg-secondary mx-auto -translate-y-7"></div>
+
+    <ul class="flex flex-col gap-5">
+        {
+            cards.map((item)=>(
+                <CardFAQ client:load title={item.title} description={item.description}/>
+            ))
+        }
+    </ul>
+</div>
